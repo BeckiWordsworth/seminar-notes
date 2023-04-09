@@ -1,0 +1,61 @@
+.App {
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background-image: linear-gradient(
+    to bottom,
+    rgba(138, 195, 240, 0.2),
+    rgba(138, 195, 240, 0.1)
+  );
+}
+
+.AppLogo {
+  position: absolute;
+  bottom: 2vmin;
+  right: 2vmin;
+  height: 6vmin;
+  pointer-events: none;
+  user-select: none;
+
+  padding: 1vmin;
+  border-radius: 5px;
+}
+
+.MainRow {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  justify-content: space-around;
+
+  width: 90%;
+}
+
+.VideoContainer {
+  position: relative;
+  width: 48%;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: black;
+
+  padding-bottom: 27%;
+}
+
+.VideoCover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 1;
+}
+
+.ReactPlayer {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
