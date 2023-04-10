@@ -1,13 +1,9 @@
 "use strict";
 
 module.exports = {
-  type: "object",
+  type: 'object',
   properties: {
-    content: { type: "string", minLength: 1 },
-    userName: { type: "string", minLength: 1 },
-    userImage: { type: "string", minLength: 1 },
-
-  },
-  required: ["content", "user"],
-  additionalProperties: false,
-};
+    userId: { type: "string", minLength: 1, required: true },
+    content: { type: "string", minLength: 1, required: true },
+  }
+}

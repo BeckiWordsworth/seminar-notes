@@ -4,7 +4,6 @@ import ReactPlayer from "react-player";
 import logo from "./logo.png";
 import "./App.css";
 import Notes from "./components/Notes";
-import { useEffect, useState } from "react";
 
 
 const App = () => {

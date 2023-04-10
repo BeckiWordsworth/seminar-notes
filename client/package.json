@@ -8,6 +8,7 @@
     "react-dom": "^18.2.0",
     "react-player": "^2.9.0",
     "react-scripts": "^5.0.0",
+    "react-select": "^5.7.2",
     "server": "file:..",
     "styled-components": "^5.3.9"
   },

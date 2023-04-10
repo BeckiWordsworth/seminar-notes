@@ -9,11 +9,10 @@ class Note {
   
     toJSON() {
       return {
-        noteId: this._id,
         content: this.content,
         user: this.user,
-        modified: format.date(this.modified),
-        created: format.date(this.created),
+        modified: this.modified,
+        created: this.created,
       };
     }
   }
