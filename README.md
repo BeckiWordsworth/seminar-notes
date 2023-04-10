@@ -1,14 +1,8 @@
-# CodeTest
+# Seminar-Notes
 
-1. Clone this repo.
-
+1. Change dir
 ```
-git clone https://github.com/Erikskogetun/CodeTest.git
-```
-
-2. Change dir
-```
-cd CodeTest
+cd seminar-notes
 ```
 
 2. Run "npm start" in the main folder (!), this will start the server as well as the client.
@@ -16,11 +10,3 @@ cd CodeTest
 ```
 npm start
 ```
-
-May have to run following, in case you get the "error:0308010C:digital envelope routines::unsupported" error:
-
-```
-NODE_OPTIONS=--openssl-legacy-provider npm start
-```
-
-3. Start coding
