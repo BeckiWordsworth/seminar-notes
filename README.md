@@ -4,15 +4,13 @@
 
 1. Copy entire Mongo Atlas string as sent in PasswordPusher into the .env file.
 
-```
-
 2. Run "npm start" in the main folder, this will start the server as well as the client.
 
 ```
 npm start
 ```
 
-3. Start adding notes
+3. Start adding notes!
 
 ## Overview
 
