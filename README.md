@@ -2,7 +2,7 @@
 
 ## How to run the project
 
-1. Copy entire Mongo Atlas string as sent in PasswordPusher into the .env file. Alternatively if you provide the connection string to a new MongoDB database we will populate it with some sample data at startup. 
+1. Copy entire Mongo Atlas string as sent in PasswordPusher into the .env file. Alternatively if you provide the connection string to a new MongoDB database it will populate it with some sample data at startup. 
 
 2. Run "npm start" in the main folder, this will start the server as well as the client.
 
