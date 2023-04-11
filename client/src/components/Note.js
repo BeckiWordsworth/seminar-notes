@@ -12,10 +12,12 @@ const Note = ({note}) => {
     );
 }
 
+export default Note;
+
 const StyledNote = styled.div`
     display: grid;
     grid-template-columns: 60px 1fr;
-    padding-bottom: 10px;
+    padding: 4px 0px;
 `;
 
 const StyledNoteImg = styled.img`
@@ -30,5 +32,3 @@ const StyledNoteContent = styled.div`
         text-decoration: underline;
     }
 `;
-
-export default Note;

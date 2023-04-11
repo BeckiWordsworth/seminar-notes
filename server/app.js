@@ -1,24 +1,23 @@
 const express = require('express');
-var validate = require('express-jsonschema').validate;
-var postNotes = require(`./schemas/Note`)
-var Note = require(`./models/Note`)
-var User = require(`./models/User`)
-var cors = require("cors");
-var app = express();
+const validate = require('express-jsonschema').validate;
+const postNotes = require(`./schemas/Note`)
+const Note = require(`./models/Note`)
+const User = require(`./models/User`)
+const cors = require("cors");
+const app = express();
 const { MongoClient, ObjectId } = require('mongodb');
 require('dotenv').config()
-
-const port = process.env.PORT || 3001;
 
 app.use(express.json())
 app.use(cors());
 
 // DB Connection
-
 const mongoUri = process.env.ATLAS_URI;
 const dbClient = new MongoClient(mongoUri);
 
 async function initDb() {
+
+  //Add example notes and users to the database on start 
   try {
     const db = dbClient.db('seminar');
     const initialNotes = require('./initial-notes.json');
@@ -61,7 +60,7 @@ app.get("/getnotes", async function(req, res ) {
 });
 
 //Add a note endpoint
-app.post("/addnote", /*validate({body: postNotes}),*/ async function(req, res) {
+app.post("/addnote", validate({body: postNotes}), async function(req, res) {
   try {
     let noteCollection = dbClient.db("seminar").collection("notes");
     let userCollection = dbClient.db("seminar").collection("users");
@@ -96,26 +95,11 @@ app.post("/addnote", /*validate({body: postNotes}),*/ async function(req, res) {
   }
 });
 
-app.delete("/removenote", async function(req, res) {
- console.log("Remove a note")
-});
-
+//Get all users endpoint
 app.get("/getusers", async function(req, res) {
   try {
     let collection = dbClient.db("seminar").collection("users");
     let result = await collection.find().toArray();
-
-    console.log(result)
-    res.send(result);
-  } catch (err) {
-    res.send({"error": "Failed to fetch notes: " + err});
-  }
- });
-
- app.get("/getuser", async function(req, res) {
-  try {
-    let collection = dbClient.db("seminar").collection("users");
-    let result = await collection.find({_id}).toArray();
 
     res.send(result);
   } catch (err) {
@@ -124,7 +108,7 @@ app.get("/getusers", async function(req, res) {
  });
 
  app.get("/adduser", async function(req, res) {
-  let collection = dbClient.db("seminar").collection("user");
+  let collection = dbClient.db("seminar").collection("users");
 
   // VALIDATION - Apply Schema , validate({body: postNotes})
   const user = new User({

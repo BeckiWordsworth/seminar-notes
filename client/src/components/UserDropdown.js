@@ -1,19 +1,16 @@
 import { React, useState, useEffect } from 'react'
 import styled from 'styled-components';
 
-const UserDropdown = ({users, onSelectUser}) => {
-  const [isOpen, setOpen] = useState(false);
+const UserDropdown = ({users, onSelectUser, className}) => {
   const [selectedUserId, setSelectedUserId] = useState("");
-  
-  const toggleDropdown = () => setOpen(!isOpen);
-  
+    
   const onChangeUser = (id) => {
     setSelectedUserId(id);
     onSelectUser(id);
   }
   
   return (
-    <StyledUserDropdown>
+    <StyledUserDropdown className={className}>
       <select value={selectedUserId} onChange={e => onChangeUser(e.target.value)}>
         <option>Select a User...</option>
         { users.map((user) => {
@@ -24,10 +21,9 @@ const UserDropdown = ({users, onSelectUser}) => {
   )
 }
 
-const StyledUserDropdown = styled.div`
-  margin-top: 6px;
-  margin-bottom: 2px;
+export default UserDropdown;
 
+const StyledUserDropdown = styled.div`
   select {
     width: 100%;
     font-size: 1rem;
@@ -35,5 +31,3 @@ const StyledUserDropdown = styled.div`
     padding: 4px;
   }
 `;
-
-export default UserDropdown;

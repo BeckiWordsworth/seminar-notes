@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from "styled-components";
 import axios from 'axios';
 
-const PostNote = ({onPostedNote, userId}) => {
+const PostNote = ({onPostedNote, userId, className}) => {
     const [content, setContent] = useState('');
 
     let onClickPost = async () => {
@@ -23,28 +23,26 @@ const PostNote = ({onPostedNote, userId}) => {
     };
 
     return (
-        <StylePostNote>
+        <StylePostNote className={className}>
             <div className="contentField">
-                <textarea type="text" name="content" onChange={e => setContent(e.target.value)} value={content}></textarea>
+                <textarea type="text" rows="3" name="content" onChange={e => setContent(e.target.value)} value={content}></textarea>
                 <button onClick={onClickPost}>Post Message</button>
             </div>
         </StylePostNote>
     );
 }
 
-const StylePostNote = styled.div`
-    border: solid 1px black;
-    background-color: #f5f5f5;
-    margin-top: 4px;
-    padding: 8px;
+export default PostNote;
 
+const StylePostNote = styled.div`
     .contentField textarea {
         width: calc(100% - 6px);
     }
 
     .contentField button {
         width: 100%;
+        padding: 6px 0px;
+        border-radius: 3px;
+        border: solid 1px #333;
     }
 `;
-
-export default PostNote;

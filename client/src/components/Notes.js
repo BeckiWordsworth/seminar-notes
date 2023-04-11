@@ -6,7 +6,6 @@ import styled from "styled-components";
 import axios from 'axios';
 
 const Notes = () => {
-    // GET notes from http://localhost:3001/getnotes
     const [notes, setNotes] = useState([]);
     const [users, setUsers] = useState([]);
     const [userId, setUserId] = useState("");
@@ -47,42 +46,76 @@ const Notes = () => {
             setReload(reload + 1);
         }
     }
-
+    //Callback for selected user
     let onSelectUser = async (userId) => {
         setUserId(userId);
     }
 
     return (
-        <StyledNoteContainer>
-            <NoteHistoryContainer>
-                { notes ? <div>
-                    { notes.map((note) => { return <Note note={note} key={note._id} /> }) }
-                    <div ref={messagesEndRef} />
-                </div> : <div>Loading...</div> }
-            </NoteHistoryContainer>
-            <UserDropdown users={users} onSelectUser={onSelectUser}/> 
-            <PostNote onPostedNote={onPostedNote} userId={userId} />
-        </StyledNoteContainer>
+        <div>
+            <StyledNoteContainer>
+                <div className="NoteTitle">Discussion</div>
+                <NoteHistoryContainer>
+                    { notes ? <div>
+                        { notes.map((note) => { return <Note note={note} key={note._id} /> }) }
+                        <div ref={messagesEndRef} />
+                    </div> : <div>Loading...</div> }
+                </NoteHistoryContainer>
+                <div className="NoteFooter">
+                    <UserDropdown users={users} onSelectUser={onSelectUser} className="UserDropdown" /> 
+                    <PostNote onPostedNote={onPostedNote} userId={userId} className="PostNote" />
+                </div>                
+            </StyledNoteContainer>
+        </div>
     );
 }
 
+export default Notes;
+
 const StyledNoteContainer = styled.div`
-    width: 48%;
+    width: 100%;
 
     display: flex;
     flex-direction: column;
     justify-content: center;
 
-    font-size: 1.5vmin;
+    font-size: 0.9rem;
 
-    padding: 10px;
     background-color: white;
-    border-radius: 10px;
+    border: solid 1px #999;
+    border-radius: 6px;
+
+    .NoteTitle {
+        padding: 6px 8px 6px 8px;
+        text-align: center;
+        background-color: #ddd;
+        border-bottom: solid 1px #999;
+        font-size: 1.1rem;
+        font-weight: bold;
+    }
+
+    .NoteFooter {
+        padding: 6px 6px 6px 6px;
+        background-color: #ddd;
+        border-top: solid 1px #999;
+    }
+
+    .UserDropdown {
+
+    }
+
+    .PostNote {
+        margin-top: 6px;
+    }
+
 `;
 
 const NoteHistoryContainer = styled.div`
-    max-height: 600px;
+    max-height: 400px;
+    padding: 6px 10px 0 10px;
     overflow: scroll;
-`;
 
-export default Notes;
+    @media screen and (min-width: 1000px) {
+        max-height: 600px;
+    }    
+`;

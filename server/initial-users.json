@@ -13,5 +13,10 @@
         "initial_id": 3, 
         "name": "Michael Persson",
         "img": "https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+    },
+    {
+        "initial_id": 4, 
+        "name": "Becki Wordsworth",
+        "img": "https://images.unsplash.com/photo-1608848461950-0fe51dfc41cb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8M3x8fGVufDB8fHx8&w=1000&q=80"
     }
   ]
